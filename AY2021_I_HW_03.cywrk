@@ -3,60 +3,18 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="AY2021_I_HW_03" persistent="AY2021_I_HW_03.cywrk" platform="NOT_USED">
-<current_project name=".\ANCONA_ELENA.cydsn\ANCONA_ELENA.cyprj" />
+<current_project name=".\GAROFALO_DANIELA.cydsn\GAROFALO_DANIELA.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\ANCONA_ELENA.cydsn\ANCONA_ELENA.cyprj</v>
-<v>.\ANDRIOTTO_LUCA.cydsn\ANDRIOTTO_LUCA.cyprj</v>
-<v>.\TAWADROUS_FABIO.cydsn\TAWADROUS_FABIO.cyprj</v>
-<v>.\TASSO_ROSARIO_DAMIANO.cydsn\TASSO_ROSARIO_DAMIANO.cyprj</v>
-<v>.\SALA_DAVIDE.cydsn\SALA_DAVIDE.cyprj</v>
-<v>.\RESCALLI_ANDREA.cydsn\RESCALLI_ANDREA.cyprj</v>
-<v>.\PEDICA_BENEDETTA.cydsn\PEDICA_BENEDETTA.cyprj</v>
-<v>.\PAPPOLLA_MARGHERITA.cydsn\PAPPOLLA_MARGHERITA.cyprj</v>
-<v>.\MAESTRONI_MARCO.cydsn\MAESTRONI_MARCO.cyprj</v>
 <v>.\GAROFALO_DANIELA.cydsn\GAROFALO_DANIELA.cyprj</v>
-<v>.\GALUZZI_GIACOMO.cydsn\GALUZZI_GIACOMO.cyprj</v>
-<v>.\FASSINA_GABRIELE.cydsn\FASSINA_GABRIELE.cyprj</v>
-<v>.\BURCHIELLI_DAVIDE.cydsn\BURCHIELLI_DAVIDE.cyprj</v>
-<v>.\BORTOLOTTI_CRISTIANO.cydsn\BORTOLOTTI_CRISTIANO.cyprj</v>
-<v>.\BONA'_ANGELICA.cydsn\BONA'_ANGELICA.cyprj</v>
-<v>.\BOLES_MATTEO.cydsn\BOLES_MATTEO.cyprj</v>
-<v>.\BOCCA_GIORGIO.cydsn\BOCCA_GIORGIO.cyprj</v>
-<v>.\BERNASCONI_SARA.cydsn\BERNASCONI_SARA.cyprj</v>
-<v>.\BARLETTA_NUNZIO.cydsn\BARLETTA_NUNZIO.cyprj</v>
-<v>.\ARRIGONI_PIERGIORGIO.cydsn\ARRIGONI_PIERGIORGIO.cyprj</v>
-<v>.\CAVICCHIOLI_MATTEO.cydsn\CAVICCHIOLI_MATTEO.cyprj</v>
-<v>.\PIRELLI_ALESSANDRO.cydsn\PIRELLI_ALESSANDRO.cyprj</v>
 </projects>
 <workspace_id v="f646c372-e390-4f16-9011-5751b3de6581" />
-<WriteAppVersionLastSavedWith v="4.3.0.1445" />
-<WriteAppMarketingVersionLastSavedWith v="4.3" />
+<WriteAppVersionLastSavedWith v="4.2.0.641" />
+<WriteAppMarketingVersionLastSavedWith v="4.2" />
 <CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyPrjDependencyList" version="4">
 <wrkspc_dependencies>
-<wrkspc_dependency project="ANCONA_ELENA.cydsn\ANCONA_ELENA.cyprj" dependency="..\..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="ANDRIOTTO_LUCA.cydsn\ANDRIOTTO_LUCA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="PIRELLI_ALESSANDRO.cydsn\PIRELLI_ALESSANDRO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="CAVICCHIOLI_MATTEO.cydsn\CAVICCHIOLI_MATTEO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="ARRIGONI_PIERGIORGIO.cydsn\ARRIGONI_PIERGIORGIO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BARLETTA_NUNZIO.cydsn\BARLETTA_NUNZIO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BERNASCONI_SARA.cydsn\BERNASCONI_SARA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BOCCA_GIORGIO.cydsn\BOCCA_GIORGIO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BOLES_MATTEO.cydsn\BOLES_MATTEO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BONA'_ANGELICA.cydsn\BONA'_ANGELICA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BORTOLOTTI_CRISTIANO.cydsn\BORTOLOTTI_CRISTIANO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="BURCHIELLI_DAVIDE.cydsn\BURCHIELLI_DAVIDE.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="FASSINA_GABRIELE.cydsn\FASSINA_GABRIELE.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="GALUZZI_GIACOMO.cydsn\GALUZZI_GIACOMO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 <wrkspc_dependency project="GAROFALO_DANIELA.cydsn\GAROFALO_DANIELA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="MAESTRONI_MARCO.cydsn\MAESTRONI_MARCO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="PAPPOLLA_MARGHERITA.cydsn\PAPPOLLA_MARGHERITA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="PEDICA_BENEDETTA.cydsn\PEDICA_BENEDETTA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="RESCALLI_ANDREA.cydsn\RESCALLI_ANDREA.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="SALA_DAVIDE.cydsn\SALA_DAVIDE.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="TASSO_ROSARIO_DAMIANO.cydsn\TASSO_ROSARIO_DAMIANO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
-<wrkspc_dependency project="TAWADROUS_FABIO.cydsn\TAWADROUS_FABIO.cyprj" dependency="..\..\Libraries\AnnotationLibrary\AnnotationLibrary_lib\AnnotationLibrary_lib.cylib\AnnotationLibrary_lib.cyprj" />
 </wrkspc_dependencies>
 </CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
 <CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyIgnoredSystemDepsList" version="1">
