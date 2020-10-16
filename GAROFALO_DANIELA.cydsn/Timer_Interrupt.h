@@ -11,7 +11,7 @@
 */
 /*
     File Timer_Interrupt.h
-    Function aimed in the definition of the ISR function generated when the timer reaches the end of the counting
+    Function aimed to the definition of the ISR function generated when the timer reaches the end of the counting
     Author: Daniela Garofalo
 */
     
