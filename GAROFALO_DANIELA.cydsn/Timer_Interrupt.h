@@ -19,7 +19,6 @@
     #define __TIMER_INTERRUPT_H__
     
     #include <cytypes.h>
-    #include <Timer_1.h>
     
     CY_ISR_PROTO(custom_Timer_ISR);
 #endif
