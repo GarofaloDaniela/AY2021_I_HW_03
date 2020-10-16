@@ -11,7 +11,7 @@
 */
 /*
     File Timer_Interrupt.h
-    Function aimed in the definition of the ISR function generated when the timer reaches the end of the counting
+    Function aimed to the definition of the ISR function generated when the timer reaches the end of the counting
     Author: Daniela Garofalo
 */
     
@@ -19,7 +19,6 @@
     #define __TIMER_INTERRUPT_H__
     
     #include <cytypes.h>
-    #include <Timer_1.h>
     
     CY_ISR_PROTO(custom_Timer_ISR);
 #endif
