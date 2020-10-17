@@ -49,7 +49,9 @@ int main(void)
     UART_1_Start();
     Timer_1_Init(); // Initialisation of the timer but not of the beginning of the counting
     PWM_RedGreen_Start();
-    PWM_Blue_Start();
+    PWM_Blue_Start(); // Enabling of the PWMs
+    Timer_ISR_StartEx(custom_Timer_ISR);
+    Rx_ISR_StartEx(custom_UART_ISR); // Enabling of the ISRs
     
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     stato = IDLE; // Status in which the device is waiting for the receiving of the first byte
