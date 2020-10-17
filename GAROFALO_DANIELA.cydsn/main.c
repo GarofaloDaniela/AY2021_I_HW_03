@@ -31,8 +31,8 @@
 #define BLUE 3
 #define TAIL 4
 
-#define HEADER_VALUE 0xA0 // Value representing the beginning of the message
-#define TAIL_VALUE 0xC0 // Value representing the end of the message
+#define HEADER_VALUE 0xA0 // Value representing the beginning of the message: 160
+#define TAIL_VALUE 0xC0 // Value representing the end of the message: 192
 
 extern int flag_timer;
 extern int flag_received;
@@ -40,7 +40,7 @@ extern int flag_received;
 
 int stato;
 int i;
-uint16 message[5] = {'\0'}; // Initialisation of the variable which will contain the transmitted information
+uint8_t message[5] = {'\0'};
 int flag_message; // Definition of the flag variable that indicates the complete receiving of the message
 
 int main(void)
@@ -55,87 +55,73 @@ int main(void)
     
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     stato = IDLE; // Status in which the device is waiting for the receiving of the first byte
-    flag_timer = 0;
-    flag_received = 0; // Initialisation of both flags to zero at the beginning of the program
+    flag_timer = 0; // Initialisation of the flag to zero because the timer has not generated any interrupt
+    flag_received = 0; // Initialisation of the flag to zero because there is no received byte
     flag_message = 0; // Initialisation of the flag to zero because there are no complete messages received 
     
-    UART_1_PutString("Please, insert first the header (0xA0), then 3 values corresponding to RGB values (numbers from 0 to 255) and finally the tail (0xCO)");
+    UART_1_PutString("Please, insert first the header (0xA0 = 160), then 3 values corresponding to RGB values (numbers from 0 to 255) and finally the tail (0xCO = 192)\r\n");
+    // Starting message on the terminal of the serial port
     for(;;)
     {
         /* Place your application code here. */
-        if (flag_received == 1) // Receiving of the one byte
+        if (flag_received == 1) // Received one byte
         {
             switch(stato)
             {
-                case IDLE:
+                case IDLE: // Expected that the byte is equal to the header package
                 {
                     Timer_1_Stop(); // Ending the counting of the timer because the device is in the "waiting" mode
                     message[HEADER] = UART_1_ReadRxData();
-                    flag_received = 0;
                     if (message[HEADER] == HEADER_VALUE) // The first byte received is actually the header byte: correct transmission
                     {
+                        UART_1_PutString("HEADER byte received correctly\r\n");
+                        Timer_1_Start(); // Starting of the counting of the delay between the header and the first colour value
                         stato = HEADERBYTE_RECEIVED;
-                        Timer_1_Start(); // Starting of the counting of the delay between the header and the first colour value 
-                        break;
+                    } else if (message[HEADER] == 'v') {
+                        UART_1_PutString("RGB LED Program $$$\r\n");
+                    } else {
+                        UART_1_PutString("Invalid inserted value\r\n");
                     }
-                    if (message[HEADER] == 'v')
-                    {
-                        UART_1_PutString("RGB LED Program $$$");
-                    }
+                    flag_received = 0;
+                    break;
                 }
-                case HEADERBYTE_RECEIVED:
+                case HEADERBYTE_RECEIVED: // Expected that the byte contains information about the RED component
                 {
                     message[RED] = UART_1_ReadRxData();
-                    if (message[RED] >= 0 && message[RED] < 256) // Controlling the received value with respect to the expected input range
-                    {       
-                        stato = REDBYTE_RECEIVED;
-                        Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    } else {
-                        UART_1_PutString("Invalid inserted value");
-                        stato = IDLE;
-                    }
+                    Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
+                    UART_1_PutString("RED byte received correctly\r\n");
+                    stato = REDBYTE_RECEIVED;
                     flag_received = 0;
                     break;
                 }
-                case REDBYTE_RECEIVED:
+                case REDBYTE_RECEIVED: // Expected that the byte contains information about the GREEN component
                 {
-                    message[GREEN] = UART_1_ReadRxData();
-                    if (message[GREEN] >= 0 && message[GREEN] < 256)
-                    // Controlling the received value with respect to the expected input range
-                    {       
-                        stato = GREENBYTE_RECEIVED;
-                        Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    } else {
-                        UART_1_PutString("Invalid inserted value");
-                        stato = IDLE;
-                    }
+                    message[GREEN] =  UART_1_ReadRxData();
+                    Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
+                    UART_1_PutString("GREEN byte received correctly\r\n");
+                    stato = GREENBYTE_RECEIVED;
                     flag_received = 0;
                     break;
                 }
-                case GREENBYTE_RECEIVED:
+                case GREENBYTE_RECEIVED: // Expected that the byte contains information about the BLUE component
                 {
                     message[BLUE] = UART_1_ReadRxData();
-                    if (message[BLUE] >= 0 && message[BLUE] < 256)
-                    // Controlling the received value with respect to the expected input range
-                    {       
-                        stato = BLUEBYTE_RECEIVED;
-                        Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    } else {
-                        UART_1_PutString("Invalid inserted value");
-                        stato = IDLE;
-                    }
+                    Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
+                    UART_1_PutString("BLUE byte received correctly\r\n");
+                    stato = BLUEBYTE_RECEIVED;
                     flag_received = 0;
                     break;
                 }
-                case BLUEBYTE_RECEIVED:
+                case BLUEBYTE_RECEIVED: // Expected that the byte is equal to the tail package
                 {
                     message[TAIL] = UART_1_ReadRxData();
                     if (message[TAIL] == TAIL_VALUE) // The last byte received is actually the tail byte: correct transmission
                     {       
                         flag_message = 1; /* Receiving the entire message correctly, so it is possible to switch on the LED
                         with the colour encoded in the data */
+                        UART_1_PutString("TAIL byte received correctly\r\n");
                     } else {
-                        UART_1_PutString("Invalid inserted value");
+                        UART_1_PutString("Invalid inserted value\r\n");
                     }
                     stato = IDLE;
                     flag_received = 0;
@@ -147,8 +133,9 @@ int main(void)
         {
             stato = IDLE;
             flag_received = 0;
-            flag_timer = 0;
             flag_message = 0;
+            UART_1_PutString("Time is up: restart the communication, please\r\n");
+            flag_timer = 0;
         }
         if (flag_message == 1) // The entire message has been correctly received
         {
@@ -156,8 +143,10 @@ int main(void)
             PWM_RedGreen_WriteCompare2(message[GREEN]);
             PWM_Blue_WriteCompare(message[BLUE]);
             // Setting the compare values of the PWM components in order to obtain the desider colour
-            flag_message = 0;
             stato = IDLE;
+            flag_received = 0;
+            UART_1_PutString("LED switched on\r\n");
+            flag_message = 0;
         }
     }
 }
