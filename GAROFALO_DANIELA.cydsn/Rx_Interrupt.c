@@ -22,7 +22,10 @@ int flag_received;
 
 CY_ISR(custom_UART_ISR)
 {
-    flag_received = 1; // Flag variable that indicates the receiving of the byte
+    if (UART_1_ReadRxStatus() == UART_1_RX_STS_FIFO_NOTEMPTY) // Byte received
+    {
+        flag_received = 1; // Flag variable that indicates the receiving of the byte
+    }
 }
     
 /* [] END OF FILE */

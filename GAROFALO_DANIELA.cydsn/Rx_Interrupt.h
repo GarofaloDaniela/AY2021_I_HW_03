@@ -20,8 +20,10 @@
     #define __RX_INTERRUPT_H__
    
     #include <cytypes.h>
+    #include <UART_1.h>
     
     CY_ISR_PROTO(custom_UART_ISR);
+    
 #endif
 
 /* [] END OF FILE */
