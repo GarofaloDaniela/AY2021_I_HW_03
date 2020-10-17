@@ -75,6 +75,10 @@ int main(void)
                         Timer_1_Start(); // Starting of the counting of the delay between the header and the first colour value 
                         break;
                     }
+                    if (message[HEADER] == 'v')
+                    {
+                        UART_1_PutString("RGB LED Program $$$");
+                    }
                 }
                 case HEADERBYTE_RECEIVED:
                 {
