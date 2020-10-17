@@ -75,7 +75,7 @@ int main(void)
                     if (message[HEADER] == HEADER_VALUE) // The first byte received is actually the header byte: correct transmission
                     {
                         UART_1_PutString("HEADER byte received correctly\r\n");
-                        Timer_1_Start(); // Starting of the counting of the delay between the header and the first colour value
+                        Timer_1_Start(); // Starting of the counting when a correct byte is received
                         stato = HEADERBYTE_RECEIVED;
                     } else if (message[HEADER] == 'v') {
                         UART_1_PutString("RGB LED Program $$$\r\n");
