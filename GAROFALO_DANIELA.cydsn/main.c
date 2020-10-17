@@ -56,6 +56,8 @@ int main(void)
     flag_timer = 0;
     flag_received = 0; // Initialisation of both flags to zero at the beginning of the program
     flag_message = 0; // Initialisation of the flag to zero because there are no complete messages received 
+    
+    UART_1_PutString("Please, insert first the header (0xA0), then 3 values corresponding to RGB values (numbers from 0 to 255) and finally the tail (0xCO)");
     for(;;)
     {
         /* Place your application code here. */
@@ -66,7 +68,6 @@ int main(void)
                 case IDLE:
                 {
                     Timer_1_Stop(); // Ending the counting of the timer because the device is in the "waiting" mode
-                    UART_1_PutString("Please, insert first the header (0xA0), then 3 values corresponding to RGB values (numbers from 0 to 255) and finally the tail (0xCO)");
                     message[HEADER] = UART_1_ReadRxData();
                     flag_received = 0;
                     if (message[HEADER] == HEADER_VALUE) // The first byte received is actually the header byte: correct transmission

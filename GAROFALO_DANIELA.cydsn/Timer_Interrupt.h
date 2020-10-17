@@ -21,6 +21,7 @@
     #include <cytypes.h>
     
     CY_ISR_PROTO(custom_Timer_ISR);
+    
 #endif
     
 /* [] END OF FILE */
