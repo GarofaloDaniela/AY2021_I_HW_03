@@ -46,10 +46,10 @@ int flag_message; // Definition of the flag variable that indicates the complete
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    UART_1_Start();
-    Timer_1_Init(); // Initialisation of the timer but not of the beginning of the counting
     PWM_RedGreen_Start();
     PWM_Blue_Start(); // Enabling of the PWMs
+    UART_1_Start(); // Initialisation of the UART transmission
+    Timer_1_Init(); // Initialisation of the timer but not of the beginning of the counting
     Timer_ISR_StartEx(custom_Timer_ISR);
     Rx_ISR_StartEx(custom_UART_ISR); // Enabling of the ISRs
     
@@ -74,7 +74,7 @@ int main(void)
                     message[HEADER] = UART_1_ReadRxData();
                     if (message[HEADER] == HEADER_VALUE) // The first byte received is actually the header byte: correct transmission
                     {
-                        UART_1_PutString("HEADER byte received correctly\r\n");
+                        // UART_1_PutString("HEADER byte received correctly\r\n");
                         Timer_1_Start(); // Starting of the counting when a correct byte is received
                         stato = HEADERBYTE_RECEIVED;
                     } else if (message[HEADER] == 'v') {
@@ -89,7 +89,7 @@ int main(void)
                 {
                     message[RED] = UART_1_ReadRxData();
                     Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    UART_1_PutString("RED byte received correctly\r\n");
+                    // UART_1_PutString("RED byte received correctly\r\n");
                     stato = REDBYTE_RECEIVED;
                     flag_received = 0;
                     break;
@@ -98,7 +98,7 @@ int main(void)
                 {
                     message[GREEN] =  UART_1_ReadRxData();
                     Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    UART_1_PutString("GREEN byte received correctly\r\n");
+                    // UART_1_PutString("GREEN byte received correctly\r\n");
                     stato = GREENBYTE_RECEIVED;
                     flag_received = 0;
                     break;
@@ -107,7 +107,7 @@ int main(void)
                 {
                     message[BLUE] = UART_1_ReadRxData();
                     Timer_1_Start(); // Restarting of the counting when a correct byte is received before the generation of an interrupt by the timer
-                    UART_1_PutString("BLUE byte received correctly\r\n");
+                    // UART_1_PutString("BLUE byte received correctly\r\n");
                     stato = BLUEBYTE_RECEIVED;
                     flag_received = 0;
                     break;
@@ -119,7 +119,7 @@ int main(void)
                     {       
                         flag_message = 1; /* Receiving the entire message correctly, so it is possible to switch on the LED
                         with the colour encoded in the data */
-                        UART_1_PutString("TAIL byte received correctly\r\n");
+                        // -UART_1_PutString("TAIL byte received correctly\r\n");
                     } else {
                         UART_1_PutString("Invalid inserted value\r\n");
                     }
